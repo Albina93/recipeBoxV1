@@ -38,7 +38,8 @@
             </li>
             {% endif %}
         </ul>
-        <h1>Welcome {{ request.custom_user.author }} to the RecipeBox</h1>
+        <h1>Welcome {{ request.user }} to the RecipeBox</h1>
+        
         <h3>Current Recipe List</h3>
         <ul>
             {% for recipe in recipes %}
@@ -49,10 +50,16 @@
                     </a>
                     <p class="card-text">{{ recipe.description }}</p>
                     <a href="/recipe/{{recipe.id}}" class="card-link" style="color: orange;">View this Recipe</a>
+                    {% comment %} <hr>
+                    <a href="/recipe_edit/{{recipe.id}}" class="card-link">Edit</a> {% endcomment %}
                 </div>
+                <hr>
+                {% if request.user.is_authenticated %}
+                <a href="/addfavorite/{{ recipe.id }}">Add to your favorite</a>
+                {% endif %}
+                {% endfor %}
             </div>
             <br>
-            {% endfor %}
         </ul>
     </div>
     <!-- JS, Popper.js, and jQuery -->

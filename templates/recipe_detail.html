@@ -47,6 +47,17 @@
             <p class="card-text">{{ recipe.instructions }}</p>
             <h6>Date: {{ recipe.recipe_date}}</h6>
             <h4>Auhtor:<a href="/author/{{recipe.author}}" class="card-link">{{ recipe.author }}</a></h4>
+            {% if recipe.author.custom_user == request.user or request.user.is_staff == True %}
+                <a href="/recipe_edit/{{recipe.id}}" class="card-link">Edit</a>
+            {% endif %}
+
+
+
+
+
+
+
+
         </div>
     </div> 
 </div>

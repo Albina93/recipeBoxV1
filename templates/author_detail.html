@@ -52,6 +52,9 @@
             </div>
             <br>
             {% endfor %}
+
+            <hr>
+            <a href="{% url 'favorite_page' author.id %}" type="button" class="btn btn-outline-dark"><button>Favorite Collection</button>></a>
         </ul>
 
     </div>

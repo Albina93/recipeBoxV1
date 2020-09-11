@@ -19,8 +19,11 @@ from recipes import views
 
 urlpatterns = [
     path('', views.index_view, name="homepage"),
+     path('favorite/<int:user_id>/', views.fav_recipe_view, name="favorite_page"),
+    path('addfavorite/<str:recipe_id>/', views.add_fav_recipes, name="add_favorite_page"),
     path('author/<str:author_name>/', views.author_detail_view, name="authorpage"),
     path('recipe/<int:recipe_id>/', views.recipe_detail_view, name="recipepage"),
+    path('recipe_edit/<int:recipe_id>/', views.edit_recipe_view, name="recipe_edit_page"),
     path('newauthor/', views.add_author,  name="newauthor"),
     path('newrecipe/', views.add_recipe,  name="newrecipe"),
     path('login/', views.login_view, name="loginview"),
