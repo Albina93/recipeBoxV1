@@ -14,12 +14,26 @@
 </head>
 
 <body>
-{% for recipe in my_recipes %}
-    <a href="/recipe/{{ recipe.id }}/">{{ recipe.title }}</a> -- {{ recipe.title }} - by {{ recipe.author.name }}
+    {% for recipe in my_recipes %}
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <a href="/recipe/{{recipe.id}}" class="card-link" style="color: orange;">
+                <h5 class="card-title">{{ recipe.title }}</h5>
+            </a>
+            <p class="card-text">{{ recipe.description }}</p>
+            <a href="/recipe/{{recipe.id}}" class="card-link" style="color: orange;">View this Recipe</a>
+            {% comment %} <hr>
+            <a href="/recipe_edit/{{recipe.id}}" class="card-link">Edit</a> {% endcomment %}
+        </div>
+    <!-- <a href="/recipe/{{ recipe.id }}/">{{ recipe.title }}</a> -- {{ recipe.title }} - by {{ recipe.author.name }}
     <ul>
         <li>{{ recipe.description }}</li>
-    </ul>
+    </ul> -->
 {% endfor %}
+<br>
+<br>
+
+</div>
 
 <a href="{% url 'homepage' %}">Go Home</a>
 </body>

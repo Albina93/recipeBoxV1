@@ -57,10 +57,12 @@
                 {% if request.user.is_authenticated %}
                 <a href="/addfavorite/{{ recipe.id }}">Add to your favorite</a>
                 {% endif %}
-                {% endfor %}
             </div>
-            <br>
+            {% endfor %}
+            
         </ul>
+        <br>
+        <br>
     </div>
     <!-- JS, Popper.js, and jQuery -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

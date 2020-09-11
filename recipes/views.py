@@ -89,12 +89,12 @@ def edit_recipe_view(request, recipe_id):
 def fav_recipe_view(request, user_id):
     logged_user = Author.objects.get(id=user_id)
     my_recipes = logged_user.fav_recipes.all()
-    return render(request, "fav_recipes.html", {'my_recipes': my_recipes, "hello": "USER"})
+    return render(request, "fav_recipes.html", {'my_recipes': my_recipes })
 
 
 def add_fav_recipes(request, recipe_id):
     fav_recipe = Recipe.objects.get(id=recipe_id)
-    logged_user = Author.objects.get(user=request.user)
+    logged_user = Author.objects.get(custom_user=request.user)
     logged_user.fav_recipes.add(fav_recipe)
     return HttpResponseRedirect(reverse("homepage"))
 
